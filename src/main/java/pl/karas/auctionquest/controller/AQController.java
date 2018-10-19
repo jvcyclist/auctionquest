@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pl.karas.aucionquest.datecalc.Datec;
 
 @Controller
-@RequestMapping("/aq")
+@RequestMapping("/")
 public class AQController {
 
 @RequestMapping("/date")
