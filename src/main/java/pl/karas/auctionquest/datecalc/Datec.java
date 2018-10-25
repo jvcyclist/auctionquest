@@ -1,4 +1,4 @@
-package pl.karas.aucionquest.datecalc;
+package pl.karas.auctionquest.datecalc;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
