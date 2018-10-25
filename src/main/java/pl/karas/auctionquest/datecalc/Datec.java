@@ -44,7 +44,7 @@ public class Datec {
 
 	public void setResult() {
 		//Parse string to DateTime
-				if((dateStart)==null) {result ="hhyyhy";}
+				if((dateStart)==null) {result ="-";}
 				else {
 				dt1 = formatter.parseDateTime(dateStart);
 				dt2 = formatter.parseDateTime(dateStop);
