@@ -71,12 +71,14 @@ public class Datec {
 					
 	
 					dt1=dt1.plusDays(diffDaysi);
-				
+					do {
 					
-					if(isWeekend()) {}
+					if(isWeekend()) {visWeekend=false;}
+					
+					isSaint(dt1.toString(formatter).trim());
 					
 					
-					
+					}while(!visWeekend&&!visSaint);
 					
 					/*
 					while((!visWeekend)&&(!visSaint)) {
@@ -103,6 +105,19 @@ public class Datec {
 	}
 
 
+	private void isSaint(String day) {
+		
+		
+		for (String element:freeDays ) {
+		    if ( element.equals( day)) {
+		        visSaint = true; dt1=dt1.plusDays(1);
+		    }
+	}
+}
+	
+	
+	
+	
 
 	public Datec(){}
 	
