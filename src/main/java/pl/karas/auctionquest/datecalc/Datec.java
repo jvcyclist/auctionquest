@@ -24,7 +24,7 @@ public class Datec {
 	"2019/11/11",
 	"2019/12/25",
 	"2019/12/26",
-	"2018/11/01"
+
 	};
 	
 	private String dateStart;
