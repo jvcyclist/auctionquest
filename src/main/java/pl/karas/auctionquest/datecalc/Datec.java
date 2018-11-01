@@ -73,7 +73,7 @@ public class Datec {
 					dt1=dt1.plusDays(diffDaysi);
 					do {
 					
-					if(isWeekend()) {visWeekend=false;}
+					if(isWeekend()) {visWeekend=false;}else {visWeekend=false;}
 					
 					isSaint(dt1.toString(formatter).trim());
 					
