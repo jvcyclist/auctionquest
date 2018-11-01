@@ -35,6 +35,10 @@ public class Datec {
 	private String diffDays;
 	private int diffDaysi;
 
+	private boolean visWeekend;
+	private boolean visSaint;
+	
+	
 	public int getDiffDaysi() {
 		return diffDaysi;
 	}
@@ -45,6 +49,10 @@ public class Datec {
 
 	public void setResult() {
 		//Parse string to DateTime
+				visWeekend=true;
+				visSaint=true;
+		
+				
 				if((dateStart)==null) {result ="-";}
 				else {
 				dt1 = formatter.parseDateTime(dateStart);
@@ -64,16 +72,22 @@ public class Datec {
 				System.out.println(dt1.toString(formatter));
 				if(!isASaintDay(dt1.toString(formatter))) {dt1=dt1.plusDays(1);		System.out.println(dt1.toString(formatter));}
 	
-				
-				//isAWeekend();
-				
-		
-				dt1=dt1.plusDays(10);
-				
-				
-				result=dt1.plusDays(2).toString(formatter);		
+				while(!visWeekend&&!visSaint) {
+				if(!isAWeekend()) {visWeekend=false;};
 
+				if(!isASaintDay(dt1.toString(formatter))) {visSaint=false;dt1=dt1.plusDays(1);};
+				
+				
 				}
+				
+
+				
+				
+				}
+				
+				result=dt1.toString(formatter);		
+
+			
 				
 	}
 
@@ -106,6 +120,7 @@ public class Datec {
 		
 		for(String element:freeDays)
 		{if (element.equals(questDay.trim())){
+			dt1=dt1.plusDays(1);
 			return true;}
 		}
 		return false;
