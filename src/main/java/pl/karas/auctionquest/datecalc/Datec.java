@@ -53,49 +53,47 @@ public class Datec {
 				visSaint=true;
 		
 				
-				if((dateStart)==null) {result ="-";}
+				if((dateStart)==null) {
+					result ="-";}
+				
 				else {
-				dt1 = formatter.parseDateTime(dateStart);
-				dt2 = formatter.parseDateTime(dateStop);
-				//Calc Period between start date and end
-				diffDays=Days.daysBetween(dt1, dt2).toString();
-				//Trim String
-				diffDays=diffDays.replace("P","");
-				diffDays=diffDays.replace("D","");
-				//String to int
-				diffDaysi=Integer.parseInt(diffDays);
-				if(diffDaysi%2==0) {diffDaysi/=2;}
-				else {diffDaysi=(diffDaysi/2)+1;}
-				
-
-				dt1=dt1.plusDays(diffDaysi);
-				System.out.println(dt1.toString(formatter));
-				if(!isASaintDay(dt1.toString(formatter))) {dt1=dt1.plusDays(1);		System.out.println(dt1.toString(formatter));}
+					dt1 = formatter.parseDateTime(dateStart);
+					dt2 = formatter.parseDateTime(dateStop);
+					//Calc Period between start date and end
+					diffDays=Days.daysBetween(dt1, dt2).toString();
+					//Trim String
+					diffDays=diffDays.replace("P","");
+					diffDays=diffDays.replace("D","");
+					//String to int
+					diffDaysi=Integer.parseInt(diffDays);
+					if(diffDaysi%2==0) {diffDaysi/=2;}
+					else {diffDaysi=(diffDaysi/2)+1;}
+					
 	
-				while(!visWeekend&&!visSaint) {
-				if(!isAWeekend()) {visWeekend=false;};
-
-				if(isASaintDay(dt1.toString(formatter))) {visSaint=false;dt1=dt1.plusDays(1);};
+					dt1=dt1.plusDays(diffDaysi);
 				
-				
+					
+					if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);}
+					if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);}
+					/*
+					while((!visWeekend)&&(!visSaint)) {
+						
+					if(!isAWeekend()) {visWeekend=false;};
+	
+					if(!isASaintDay(dt1.toString(formatter))) {visSaint=false;dt1=dt1.plusDays(1);};
+					
+					if(isAWeekend()) {visWeekend=true;};
+					}
+					*/
+					result=dt1.toString(formatter);		
 				}
 				
-
-				
-				
-				}
-				
-				result=dt1.toString(formatter);		
-
 			
+
 				
 	}
 
-	public boolean isAWeekend() {
-		if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);return true;}
-		else if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);return true;}
-		else {return false;}
-	}
+
 
 	public Datec(){}
 	
@@ -115,16 +113,6 @@ public class Datec {
 		this.dateStop = dateStop;
 	}
 
-	public boolean isASaintDay(String questDay) {
-		
-		
-		for(String element:freeDays)
-		{if (element.equals(questDay.trim())){
-			dt1=dt1.plusDays(1);
-			return true;}
-		}
-		return false;
-	}
 	
 	
 	public String getResult() {
