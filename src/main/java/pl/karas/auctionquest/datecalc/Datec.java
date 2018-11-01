@@ -73,8 +73,11 @@ public class Datec {
 					dt1=dt1.plusDays(diffDaysi);
 				
 					
-					if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);}
-					if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);}
+					isWeekend();
+					
+					
+					
+					
 					/*
 					while((!visWeekend)&&(!visSaint)) {
 						
@@ -91,6 +94,11 @@ public class Datec {
 			
 
 				
+	}
+
+	private void isWeekend() {
+		if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);}
+		if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);}
 	}
 
 
