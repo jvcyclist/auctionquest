@@ -7,23 +7,24 @@ import org.joda.time.format.DateTimeFormatter;
 
 public class Datec {
 	String[] freeDays = new String[] {
-	"2018/11/1"	,	
-	"2018/11/11"	,
-	"2018/11/25"	,
-	"2018/11/26"	,
-	"2019/1/1"	,
-	"2019/1/6"	,
-	"2019/4/21"	,
-	"2019/4/22"	,
-	"2019/5/1"	,
-	"2019/5/3"	,
-	"2019/6/9"	,
+	"2018/11/01",	
+	"2018/11/11",
+	"2018/11/25",
+	"2018/11/26",
+	"2019/01/01"	,
+	"2019/01/06"	,
+	"2019/04/21"	,
+	"2019/04/22"	,
+	"2019/05/01"	,
+	"2019/05/03"	,
+	"2019/6/09"	,
 	"2019/6/20"	,
 	"2019/8/15"	,
-	"2019/11/1"	,
+	"2019/11/01",
 	"2019/11/11",
 	"2019/12/25",
 	"2019/12/26",
+	"2018/11/01"
 	};
 	
 	private String dateStart;
@@ -33,7 +34,7 @@ public class Datec {
 	private DateTime dt2;
 	private String diffDays;
 	private int diffDaysi;
-	
+
 	public int getDiffDaysi() {
 		return diffDaysi;
 	}
@@ -58,14 +59,28 @@ public class Datec {
 				if(diffDaysi%2==0) {diffDaysi/=2;}
 				else {diffDaysi=(diffDaysi/2)+1;}
 				
+
 				dt1=dt1.plusDays(diffDaysi);
-				if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);}
-				if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);}
+				System.out.println(dt1.toString(formatter));
+				if(!isASaintDay(dt1.toString(formatter))) {dt1=dt1.plusDays(1);		System.out.println(dt1.toString(formatter));}
+	
 				
-				result=dt1.toString(formatter);		
+				//isAWeekend();
+				
+		
+				dt1=dt1.plusDays(10);
+				
+				
+				result=dt1.plusDays(2).toString(formatter);		
 
 				}
 				
+	}
+
+	public boolean isAWeekend() {
+		if(dt1.getDayOfWeek()==6) {dt1=dt1.plusDays(2);return true;}
+		else if(dt1.getDayOfWeek()==7) {dt1=dt1.plusDays(1);return true;}
+		else {return false;}
 	}
 
 	public Datec(){}
@@ -86,6 +101,17 @@ public class Datec {
 		this.dateStop = dateStop;
 	}
 
+	public boolean isASaintDay(String questDay) {
+		
+		
+		for(String element:freeDays)
+		{if (element.equals(questDay.trim())){
+			return true;}
+		}
+		return false;
+	}
+	
+	
 	public String getResult() {
 		
 		return this.result;
@@ -99,10 +125,6 @@ public class Datec {
 	}
 
 	DateTimeFormatter formatter =DateTimeFormat.forPattern("yyyy/MM/dd");
-	
 
-	
-	
-	
 	
 }
