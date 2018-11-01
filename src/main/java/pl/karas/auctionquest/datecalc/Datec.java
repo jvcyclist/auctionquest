@@ -77,6 +77,7 @@ public class Datec {
 					
 					isSaint(dt1.toString(formatter).trim());
 					
+					if(isWeekend()) {visWeekend=false;}else {visWeekend=false;}
 					
 					}while(!visWeekend&&!visSaint);
 					
