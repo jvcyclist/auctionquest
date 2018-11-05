@@ -49,7 +49,7 @@
 </div>
 	
 
-<div class="datacon1">
+<div class="datacon2">
 			Data Skladania ofert
 			
 				<form:input path="dateStop" cssClass="date-picker2" />

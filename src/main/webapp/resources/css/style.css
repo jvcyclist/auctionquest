@@ -12,8 +12,6 @@ a {
 	margin: 0 auto;
 }
 
-
-
 .datacon1{
 
 width: 50%;
@@ -25,8 +23,6 @@ float:left;
 width: 50%;	
 float:left;
 }
-
-
 
 
 #calendar1 {
@@ -127,8 +123,9 @@ h4 {
 
 #text {
 	height: 120px;
-
 	display: block;
+	padding-left: 20%;
+	padding-right: 20%;
 }
 
 .date-picker {
