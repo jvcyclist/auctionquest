@@ -1,6 +1,6 @@
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>Oblicz termin zadawania pytan</title>
 
 
@@ -21,9 +21,8 @@
 <body id="body">
 	<div>
 		<div class="container">
-			<h1>Obliczanie terminu skladania zapytan do Zamawiajacego</h1>
+			<h1>Obliczanie terminu zadawania pytań do Zamawiającego</h1>
 			<br> <br> <br> <br>
-
 
 
 		</div>
@@ -38,7 +37,7 @@
 	<div class="datacon1">
 	
 		<form:form action="calcDate" modelAttribute="datec" style="float:left;padding-left:100px;">
-			<div>Data wyslania ogloszenia</div>
+			<div>Data wysłania ogloszenia</div>
 			<div>
 				<form:input path="dateStart" cssClass="date-picker" />
 			</div>
@@ -49,8 +48,8 @@
 </div>
 	
 
-<div class="datacon1">
-			Data Skladania ofert
+<div class="datacon2">
+			Termin składania ofert
 			
 				<form:input path="dateStop" cssClass="date-picker2" />
 			
@@ -59,7 +58,7 @@
 		</form:form>
 </div>
 		<div id="result" style="padding-left:100px">
-			Termin zadawania pytan: <b>${datec.result}</b>
+			Termin zadawania pytań: <b>${datec.result}</b>
 		</div>
 	</div>
 
