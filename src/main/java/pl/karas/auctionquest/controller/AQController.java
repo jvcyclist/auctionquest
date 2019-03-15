@@ -12,22 +12,17 @@ import pl.karas.auctionquest.datecalc.Datec;
 
 public class AQController {
 
+	@RequestMapping("/calcDate")
+	public String calcDate(@ModelAttribute Datec datec) {
+		datec.setResult();
+		
+		return "date";
+	}
 
-@RequestMapping("/calcDate")
-public String calcDate(@ModelAttribute Datec datec) {
-	datec.setResult();
-	
-	return "date";
-}
-
-@RequestMapping("/calcDates")
-public String calcDates() {
-	
-	
-	return "dates";
-}
-
-
-
+	@RequestMapping("/calcDates")
+	public String calcDates() {
+		
+		return "dates";
+	}
 	
 }
